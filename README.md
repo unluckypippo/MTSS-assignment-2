@@ -1,0 +1,6 @@
+# MTSS Assignment 2
+
+## Collaboratori
+
+- Davide Testolin - 2079242
+- Filippo Guerra - 2077681
