@@ -20,19 +20,19 @@ public class RomanPrinter {
 
   private static final String[] V = {
     "__      __",
-    "\ \    / /",
-    " \ \  / / ",
-    "  \ \/ /  ",
-    "   \  /   ",
-    "    \/    "
+    "\\ \\    / / ",
+    " \\ \\  / / ",
+    "  \\ \\/ /  ",
+    "   \\  /   ",
+    "    \\/    "
   };
   private static final String[] X = {
     "__    __",
-    "\ \  / /",
-    " \ V  / ",
+    "\\ \\  / /",
+    " \\ V  / ",
     "  > <   ",
-    " / . \  ",
-    "/_/ \_\ "
+    " / . \\  ",
+    "/_/ \\_\\ "
   };
   private static final String[] L = {
     " _      ",
@@ -48,11 +48,11 @@ public class RomanPrinter {
     "| |     ",
     "| |     ",
     "| |____ ",
-    " \_____|"
+    "\\_____|"
   };
   private static final String[] D = {
     " _____  ",
-    "|  __ \ ",
+    "|  __ \\ ",
     "| |  | |",
     "| |  | |",
     "| |__| |",
@@ -60,13 +60,13 @@ public class RomanPrinter {
   };
   private static final String[] M = {
     " __  __ ",
-    "|  \/  |",
-    "| \  / |",
-    "| |\/| |",
+    "|  \\/  |",
+    "| \\ / |",
+    "| |\\/| |",
     "| |  | |",
     "|_|  |_|"
   };
-  
+
   public static String printAsciiArt(String romanNumber) {
       if (romanNumber == null) {
           throw new IllegalArgumentException("Input cannot be null");
