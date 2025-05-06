@@ -3,16 +3,10 @@
 // Filippo Guerra 2077681
 ////////////////////////////////////////////////////////////////////
 
-
 package it.unipd.mtss;
 
-import static org.junit.Assert.*;
-import org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertEquals;
 import org.junit.Test;
-import org.junit.Rule;
-import org.junit.rules.ExpectedException;
-
-
 
 public class RomanPrinterTest {
 
@@ -48,11 +42,11 @@ public class RomanPrinterTest {
     public void stampaLetteraSingolaV(){
         String vera = 
         "__      __\n" +
-        "\ \    / /\n" +
-        " \ \  / / \n" +
-        "  \ \/ /  \n" +
-        "   \  /   \n" +
-        "    \/    \n";
+        "\\ \\    / /\n" +
+        " \\ \\  / / \n" +
+        "  \\ \\/ /  \n" +
+        "   \\  /   \n" +
+        "    \\/    \n";
         String ris = RomanPrinter.printAsciiArt("V");
 
         assertEquals(vera, ris);
@@ -62,11 +56,11 @@ public class RomanPrinterTest {
     public void stampaLetteraSingolaX(){
         String vera = 
         "__    __\n" +
-        "\ \  / /\n" +
-        " \ V  / \n" +
-        "  > <   \n" +
-        " / . \  \n" +
-        "/_/ \_\ \n";
+        "\\ \\  / /\n" +
+        " \\ \\/ / \n" +
+        "  >  <  \n" +
+        " / .  \\ \n" +
+        "/_/ \\_\\ \n";
         String ris = RomanPrinter.printAsciiArt("X");
 
         assertEquals(vera, ris);
@@ -94,7 +88,7 @@ public class RomanPrinterTest {
         "| |     \n" +
         "| |     \n" +
         "| |____ \n" +
-        " \_____|\n";
+        " \\_____|\n";
         String ris = RomanPrinter.printAsciiArt("C");
 
         assertEquals(vera, ris);
@@ -104,7 +98,7 @@ public class RomanPrinterTest {
     public void stampaLetteraSingolaD(){
         String vera = 
         " _____  \n" +
-        "|  __ \ \n" +
+        "|  __ \\ \n" +
         "| |  | |\n" +
         "| |  | |\n" +
         "| |__| |\n" +
@@ -118,15 +112,13 @@ public class RomanPrinterTest {
     public void stampaLetteraSingolaM(){
         String vera = 
         " __  __ \n" +
-        "|  \/  |\n" +
-        "| \  / |\n" +
-        "| |\/| |\n" +
+        "|  \\/  |\n" +
+        "| \\  / |\n" +
+        "| |\\/| |\n" +
         "| |  | |\n" +
         "|_|  |_|\n";
         String ris = RomanPrinter.printAsciiArt("M");
 
         assertEquals(vera, ris);
     }
-
-    
 }
