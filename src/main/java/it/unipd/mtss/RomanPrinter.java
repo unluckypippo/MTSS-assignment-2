@@ -9,110 +9,79 @@ public class RomanPrinter {
   public static String print(int num){
   return printAsciiArt(IntegerToRoman.convert(num));
 }
-  private static final String[] I = {
-    " _____ ",
-    "|_   _|",
-    "  | |  ",
-    "  | |  ",
-    " _| |_ ",
-    "|_____|"
-  };
 
-  private static final String[] V = {
-    "__      __",
-    "\\ \\    / / ",
-    " \\ \\  / / ",
-    "  \\ \\/ /  ",
-    "   \\  /   ",
-    "    \\/    "
-  };
-  private static final String[] X = {
-    "__    __",
-    "\\ \\  / /",
-    " \\ V  / ",
-    "  > <   ",
-    " / . \\  ",
-    "/_/ \\_\\ "
-  };
-  private static final String[] L = {
-    " _      ",
-    "| |     ",
-    "| |     ",
-    "| |     ",
-    "| |____ ",
-    "|______|"
-  };
-  private static final String[] C = {
-    "  _____ ",
-    " / ____|",
-    "| |     ",
-    "| |     ",
-    "| |____ ",
-    "\\_____|"
-  };
-  private static final String[] D = {
-    " _____  ",
-    "|  __ \\ ",
-    "| |  | |",
-    "| |  | |",
-    "| |__| |",
-    "|_____/ "
-  };
-  private static final String[] M = {
-    " __  __ ",
-    "|  \\/  |",
-    "| \\ / |",
-    "| |\\/| |",
-    "| |  | |",
-    "|_|  |_|"
-  };
 
-  public static String printAsciiArt(String romanNumber) {
-      if (romanNumber == null) {
-          throw new IllegalArgumentException("Input cannot be null");
-      }
-
-      if (romanNumber.isEmpty()) {
-          return "";
-      }
-
-      StringBuilder[] lines = new StringBuilder[6];
-      for (int i = 0; i < 6; i++) {
-          lines[i] = new StringBuilder();
-      }
-
-      for (char c : romanNumber.toCharArray()) {
-          String[] letterArt = getLetterArt(c);
-          for (int i = 0; i < 6; i++) {
-              if (lines[i].length() > 0) {
-                  lines[i].append(" ");
-              }
-              lines[i].append(letterArt[i]);
-          }
-      }
-
-      StringBuilder result = new StringBuilder();
-      for (int i = 0; i < 6; i++) {
-          if (i > 0) {
-              result.append("\n");
-          }
-          result.append(lines[i]);
-      }
-
-      return result.toString();
+public static String printAsciiArt(String romanNumber) {
+  if (romanNumber == null || romanNumber.isEmpty()) {
+      return ""; 
   }
 
-  private static String[] getLetterArt(char c) {
-      switch (c) {
-          case 'I': return I;
-          case 'V': return V;
-          case 'X': return X;
-          case 'L': return L;
-          case 'C': return C;
-          case 'D': return D;
-          case 'M': return M;
+  StringBuilder asciiArt = new StringBuilder();
+  for (char character : romanNumber.toUpperCase().toCharArray()) {
+      switch (character) {
+          case 'I':
+              asciiArt.append(" _____ \n")
+                      .append("|_   _|\n")
+                      .append("  | |  \n")
+                      .append("  | |  \n")
+                      .append(" _| |_ \n")
+                      .append("|_____|\n");
+              break;
+          case 'V':
+              asciiArt.append("__      __\n")
+                      .append("\\ \\    / /\n")
+                      .append(" \\ \\  / / \n")
+                      .append("  \\ \\/ /  \n")
+                      .append("   \\  /   \n")
+                      .append("    \\/    \n");
+              break;
+          case 'X':
+              asciiArt.append("__    __\n")
+                      .append("\\ \\  / /\n")
+                      .append(" \\ \\/ / \n")
+                      .append("  >  <  \n")
+                      .append(" / .  \\ \n")
+                      .append("/_/ \\_\\ \n");
+              break;
+          case 'L':
+              asciiArt.append(" _      \n")
+                      .append("| |     \n")
+                      .append("| |     \n")
+                      .append("| |     \n")
+                      .append("| |____ \n")
+                      .append("|______|\n");
+              break;
+          case 'C':
+              asciiArt.append("  _____ \n")
+                      .append(" / ____|\n")
+                      .append("| |     \n")
+                      .append("| |     \n")
+                      .append("| |____ \n")
+                      .append(" \\_____|\n");
+              break;
+
+          case 'D':
+              asciiArt.append(" _____  \n")
+                      .append("|  __ \\ \n")
+                      .append("| |  | |\n")
+                      .append("| |  | |\n")
+                      .append("| |__| |\n")
+                      .append("|_____/ \n");
+          break;
+          case 'M':
+              asciiArt.append(" __  __ \n")
+                      .append("|  \\/  |\n")
+                      .append("| \\  / |\n")
+                      .append("| |\\/| |\n")
+                      .append("| |  | |\n")
+                      .append("|_|  |_|\n");
+          break;
+
           default:
-              throw new IllegalArgumentException("Invalid Roman numeral: " + c);
+              throw new IllegalArgumentException(" Carattere non valido: " + character);
       }
   }
+
+  return asciiArt.toString();
+}
 }
