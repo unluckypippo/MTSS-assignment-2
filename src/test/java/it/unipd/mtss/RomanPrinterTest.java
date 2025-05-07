@@ -25,100 +25,73 @@ public class RomanPrinterTest {
     }
 
     @Test
-    public void stampaLetteraSingolaI(){
-        String vera = 
-        " _____ \n" +
-        "|_   _|\n" +
-        "  | |  \n" +
-        "  | |  \n" +
-        " _| |_ \n" +
-        "|_____|\n";
-        String ris = RomanPrinter.printAsciiArt("I");
-        
-        assertEquals(vera, ris);
+    public void singoleLettereTest() {
+        String i = " _____  \n" +
+                "|_   _| \n" +
+                "  | |   \n" +
+                "  | |   \n" +
+                " _| |_  \n" +
+                "|_____| \n";
+        assertEquals(i, RomanPrinter.printAsciiArt("I"));
+
+        String v = "__      __ \n" +
+                "\\ \\    / / \n" +
+                " \\ \\  / /  \n" +
+                "  \\ \\/ /   \n" +
+                "   \\  /    \n" +
+                "    \\/     \n";
+        assertEquals(v, RomanPrinter.printAsciiArt("V"));
+
+        String x = " __   __ \n" +
+                " \\ \\ / / \n" +
+                "  \\ V /  \n" +
+                "   > <   \n" +
+                "  / . \\  \n" +
+                " /_/ \\_\\ \n";
+        assertEquals(x, RomanPrinter.printAsciiArt("X"));
+
+        String l = " _       \n" +
+                "| |      \n" +
+                "| |      \n" +
+                "| |      \n" +
+                "| |____  \n" +
+                "|______| \n";
+        assertEquals(l, RomanPrinter.printAsciiArt("L"));
+
+        String c = "  _____  \n" +
+                " / ____| \n" +
+                "| |      \n" +
+                "| |      \n" +
+                "| |____  \n" +
+                " \\_____| \n";
+        assertEquals(c, RomanPrinter.printAsciiArt("C"));
+
+        String d = " _____   \n" +
+                "| __  \\  \n" +
+                "| |  | | \n" +
+                "| |  | | \n" +
+                "| |__| | \n" +
+                "|_____/  \n";
+        assertEquals(d, RomanPrinter.printAsciiArt("D"));
+
+        String m = " __  __  \n" +
+                "|  \\/  | \n" +
+                "| \\  / | \n" +
+                "| |\\/| | \n" +
+                "| |  | | \n" +
+                "|_|  |_| \n";
+        assertEquals(m, RomanPrinter.printAsciiArt("M"));
     }
-
+    /* */
     @Test
-    public void stampaLetteraSingolaV(){
-        String vera = 
-        "__      __\n" +
-        "\\ \\    / /\n" +
-        " \\ \\  / / \n" +
-        "  \\ \\/ /  \n" +
-        "   \\  /   \n" +
-        "    \\/    \n";
-        String ris = RomanPrinter.printAsciiArt("V");
+    public void MultipleLettereTest(){
+        String cmxcix = "  _____   __  __   __   __   _____   _____   __   __ \n" +
+                    " / ____| |  \\/  |  \\ \\ / /  / ____| |_   _|  \\ \\ / / \n" + 
+                    "| |      | \\  / |   \\ V /  | |        | |     \\ V /  \n"+
+                    "| |      | |\\/| |    > <   | |        | |      > <   \n"+
+                    "| |____  | |  | |   / . \\  | |____   _| |_    / . \\  \n"+
+                    " \\_____| |_|  |_|  /_/ \\_\\  \\_____| |_____|  /_/ \\_\\ \n";
+        assertEquals(cmxcix, RomanPrinter.printAsciiArt("CMXCIX"));
 
-        assertEquals(vera, ris);
-    }
-
-    @Test
-    public void stampaLetteraSingolaX(){
-        String vera = 
-        "__    __\n" +
-        "\\ \\  / /\n" +
-        " \\ \\/ / \n" +
-        "  >  <  \n" +
-        " / .  \\ \n" +
-        "/_/ \\_\\ \n";
-        String ris = RomanPrinter.printAsciiArt("X");
-
-        assertEquals(vera, ris);
-    }
-
-    @Test
-    public void stampaLetteraSingolaL(){
-        String vera = 
-        " _      \n" +
-        "| |     \n" +
-        "| |     \n" +
-        "| |     \n" +
-        "| |____ \n" +
-        "|______|\n";
-        String ris = RomanPrinter.printAsciiArt("L");
-
-        assertEquals(vera, ris);
-    }
-
-    @Test
-    public void stampaLetteraSingolaC(){
-        String vera = 
-        "  _____ \n" +
-        " / ____|\n" +
-        "| |     \n" +
-        "| |     \n" +
-        "| |____ \n" +
-        " \\_____|\n";
-        String ris = RomanPrinter.printAsciiArt("C");
-
-        assertEquals(vera, ris);
-    }
-
-    @Test
-    public void stampaLetteraSingolaD(){
-        String vera = 
-        " _____  \n" +
-        "|  __ \\ \n" +
-        "| |  | |\n" +
-        "| |  | |\n" +
-        "| |__| |\n" +
-        "|_____/ \n";
-        String ris = RomanPrinter.printAsciiArt("D");
-
-        assertEquals(vera, ris);
-    }
-
-    @Test
-    public void stampaLetteraSingolaM(){
-        String vera = 
-        " __  __ \n" +
-        "|  \\/  |\n" +
-        "| \\  / |\n" +
-        "| |\\/| |\n" +
-        "| |  | |\n" +
-        "|_|  |_|\n";
-        String ris = RomanPrinter.printAsciiArt("M");
-
-        assertEquals(vera, ris);
     }
 }
