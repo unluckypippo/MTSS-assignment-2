@@ -5,83 +5,72 @@
 
 
 package it.unipd.mtss;
+import java.util.Map;
+import java.util.HashMap;
+
 public class RomanPrinter {
-  public static String print(int num){
-  return printAsciiArt(IntegerToRoman.convert(num));
-}
 
+    private static final Map<Character, String> ROMAN_ASCII_MAP = new HashMap<>();
 
-public static String printAsciiArt(String romanNumber) {
-  if (romanNumber == null || romanNumber.isEmpty()) {
-      return ""; 
-  }
+    static {
+        ROMAN_ASCII_MAP.put('I', " _____ \n" +
+                "|_   _|\n" +
+                "  | |  \n" +
+                "  | |  \n" +
+                " _| |_ \n" +
+                "|_____|\n");
+        ROMAN_ASCII_MAP.put('V', "__      __\n" +
+                "\\ \\    / /\n" +
+                " \\ \\  / / \n" +
+                "  \\ \\/ /  \n" +
+                "   \\  /   \n" +
+                "    \\/    \n");
+        ROMAN_ASCII_MAP.put('X', "__    __\n" +
+                "\\ \\  / /\n" +
+                " \\ \\/ / \n" +
+                "  >  <  \n" +
+                " / .  \\ \n" +
+                "/_/ \\_\\ \n");
+        ROMAN_ASCII_MAP.put('L', " _      \n" +
+                "| |     \n" +
+                "| |     \n" +
+                "| |     \n" +
+                "| |____ \n" +
+                "|______|\n");
+        ROMAN_ASCII_MAP.put('C', "  _____ \n" +
+                " / ____|\n" +
+                "| |     \n" +
+                "| |     \n" +
+                "| |____ \n" +
+                " \\_____|\n");
+        ROMAN_ASCII_MAP.put('D', " _____  \n" +
+                "|  __ \\ \n" +
+                "| |  | |\n" +
+                "| |  | |\n" +
+                "| |__| |\n" +
+                "|_____/ \n");
+        ROMAN_ASCII_MAP.put('M', " __  __ \n" +
+                "|  \\/  |\n" +
+                "| \\  / |\n" +
+                "| |\\/| |\n" +
+                "| |  | |\n" +
+                "|_|  |_|\n");
+    }
 
-  StringBuilder asciiArt = new StringBuilder();
-  for (char character : romanNumber.toUpperCase().toCharArray()) {
-      switch (character) {
-          case 'I':
-              asciiArt.append(" _____ \n")
-                      .append("|_   _|\n")
-                      .append("  | |  \n")
-                      .append("  | |  \n")
-                      .append(" _| |_ \n")
-                      .append("|_____|\n");
-              break;
-          case 'V':
-              asciiArt.append("__      __\n")
-                      .append("\\ \\    / /\n")
-                      .append(" \\ \\  / / \n")
-                      .append("  \\ \\/ /  \n")
-                      .append("   \\  /   \n")
-                      .append("    \\/    \n");
-              break;
-          case 'X':
-              asciiArt.append("__    __\n")
-                      .append("\\ \\  / /\n")
-                      .append(" \\ \\/ / \n")
-                      .append("  >  <  \n")
-                      .append(" / .  \\ \n")
-                      .append("/_/ \\_\\ \n");
-              break;
-          case 'L':
-              asciiArt.append(" _      \n")
-                      .append("| |     \n")
-                      .append("| |     \n")
-                      .append("| |     \n")
-                      .append("| |____ \n")
-                      .append("|______|\n");
-              break;
-          case 'C':
-              asciiArt.append("  _____ \n")
-                      .append(" / ____|\n")
-                      .append("| |     \n")
-                      .append("| |     \n")
-                      .append("| |____ \n")
-                      .append(" \\_____|\n");
-              break;
+    public static String printAsciiArt(String romanNumber) {
+        if (romanNumber == null || romanNumber.isEmpty()) {
+            return "";
+        }
 
-          case 'D':
-              asciiArt.append(" _____  \n")
-                      .append("|  __ \\ \n")
-                      .append("| |  | |\n")
-                      .append("| |  | |\n")
-                      .append("| |__| |\n")
-                      .append("|_____/ \n");
-          break;
-          case 'M':
-              asciiArt.append(" __  __ \n")
-                      .append("|  \\/  |\n")
-                      .append("| \\  / |\n")
-                      .append("| |\\/| |\n")
-                      .append("| |  | |\n")
-                      .append("|_|  |_|\n");
-          break;
+        StringBuilder asciiArt = new StringBuilder();
+        for (char character : romanNumber.toUpperCase().toCharArray()) {
+            String art = ROMAN_ASCII_MAP.get(character);
+            if (art == null) {
+                throw new IllegalArgumentException("Invalid character: " + character);
+            }
+            asciiArt.append(art);
+        }
 
-          default:
-              throw new IllegalArgumentException(" Carattere non valido: " + character);
-      }
-  }
-
-  return asciiArt.toString();
-}
+        return asciiArt.toString();
+    }
 }
